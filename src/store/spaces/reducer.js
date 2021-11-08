@@ -2,7 +2,7 @@ const initialState = {
     spaces:[],
   };
   
-  export default function spacesReducer(state = initialState, action) {
+  export default function spaces(state = initialState, action) {
     switch (action.type) {
       case "spaces/allSpacesFetched": {
         return {
