@@ -16,7 +16,13 @@ export default function Navigation() {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
-        Cool Story Bro!
+        <img 
+        src="https://lezebre.lu/images/detailed/24/65051-sticker-cool-story-bro.png" 
+        alt="Cool Story Bro!"
+        width="10%"
+        height="10%"
+      />
+      {/* Cool Story Bro! */}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

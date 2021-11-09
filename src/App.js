@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import Home from "./pages/HomePage";
+import Space from "./pages/SpacePage";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 
@@ -40,6 +41,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/space/:id" component={Space} />
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
