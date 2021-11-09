@@ -7,7 +7,7 @@ import { apiUrl } from "../../config/constants";
       const response = await await axios.get(`${apiUrl}/spaces`)
 
       const spaces = response.data
-      console.log("allSpaces", spaces)
+      // console.log("allSpaces", spaces)
   
       dispatch(
         spacesFullyFetched({
@@ -29,7 +29,7 @@ import { apiUrl } from "../../config/constants";
       const response = await axios.get(`${apiUrl}/spaces/${id}`)
 
       const spaces = response.data
-      console.log("Space fetched", spaces)
+      // console.log("Space fetched", spaces)
   
       dispatch(
         spaceFullyFetched({
@@ -45,6 +45,8 @@ import { apiUrl } from "../../config/constants";
       payload: data,
     }
   }
+
+  
 
   export const newSpace = (title, userId) => {
     return async (dispatch, getState) => {

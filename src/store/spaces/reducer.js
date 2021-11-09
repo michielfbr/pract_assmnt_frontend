@@ -17,12 +17,6 @@ const initialState = {
           space: action.payload.spaces
         };
       }
-      // case "spaces/spaceFetched": {
-      //   return {
-      //     ...state,
-      //     mySpace: action.payload.spaces
-      //   };
-      // }
       default: {
         return state;
       }

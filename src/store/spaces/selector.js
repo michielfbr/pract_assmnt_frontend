@@ -6,10 +6,12 @@ export const selectSpace = reduxState => {
     return reduxState.spaces.space.spaceById;
   };
 
+// UNSORTED
 // export const selectSpaceStories = reduxState => {
 //     return reduxState.spaces.space.stories;
 //   };
 
+// SORTED: New -> old
 export const selectSpaceStories = reduxState => {
   if (!reduxState.spaces.space.stories) {
     return null
@@ -19,4 +21,8 @@ export const selectSpaceStories = reduxState => {
       return a.createdAt < b.createdAt ? 1 : -1
     });
   }
+  };
+
+  export const selectMySpace = reduxState => {
+    return reduxState.user;
   };
