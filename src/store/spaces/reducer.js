@@ -1,6 +1,6 @@
 const initialState = {
     spaces:[],
-    space:[]
+    space:[],
   };
   
   export default function spaces(state = initialState, action) {
@@ -17,6 +17,12 @@ const initialState = {
           space: action.payload.spaces
         };
       }
+      // case "spaces/spaceFetched": {
+      //   return {
+      //     ...state,
+      //     mySpace: action.payload.spaces
+      //   };
+      // }
       default: {
         return state;
       }

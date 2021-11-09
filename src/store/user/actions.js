@@ -37,11 +37,10 @@ export const signUp = (name, email, password) => {
         password
       });
 
-      console.log("response.data",response.data)
-      // const newSpaceTitle = response.data.name `'s space`
-      const newSpaceTitle = `${response.data.name}'s space`
-      const newSpaceId = response.data.id
-      dispatch(newSpace(newSpaceTitle, newSpaceId));
+      // console.log("response.data",response.data)
+      // const newSpaceTitle = `${response.data.name}'s space`
+      // const newSpaceId = response.data.id
+      // dispatch(newSpace(newSpaceTitle, newSpaceId));
 
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", true, "account created"));
