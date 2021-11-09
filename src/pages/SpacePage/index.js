@@ -19,7 +19,7 @@ export default function Space() {
  
     return (
         <Jumbotron>
-           <h1>SpacePage</h1>
+           {/* <h1>SpacePage</h1> */}
 
            <div>{!space || !stories ? (<Loading />) : (
                <div>

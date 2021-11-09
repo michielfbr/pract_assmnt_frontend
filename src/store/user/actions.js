@@ -7,6 +7,7 @@ import {
   showMessageWithTimeout,
   setMessage
 } from "../appState/actions";
+import { newSpace } from "../spaces/actions";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
@@ -35,6 +36,12 @@ export const signUp = (name, email, password) => {
         email,
         password
       });
+
+      console.log("response.data",response.data)
+      // const newSpaceTitle = response.data.name `'s space`
+      const newSpaceTitle = `${response.data.name}'s space`
+      const newSpaceId = response.data.id
+      dispatch(newSpace(newSpaceTitle, newSpaceId));
 
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", true, "account created"));

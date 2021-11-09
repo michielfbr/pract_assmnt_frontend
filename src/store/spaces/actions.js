@@ -45,3 +45,26 @@ import { apiUrl } from "../../config/constants";
       payload: data,
     }
   }
+
+  export const newSpace = (title, userId) => {
+    return async (dispatch, getState) => {
+      try {
+        const response = await axios.post(`${apiUrl}/spaces`, {
+          title,
+          userId
+        });
+        const newSpace = response.data
+        console.log("New space:", newSpace)
+
+      } catch (error) {
+        if (error.response) {
+          console.log(error.response.data.message);
+
+        } else {
+          console.log(error.message);
+
+        }
+
+      }
+    };
+  };
