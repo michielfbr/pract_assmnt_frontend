@@ -8,6 +8,7 @@ import MessageBox from "./components/MessageBox";
 import Home from "./pages/HomePage";
 import Space from "./pages/SpacePage";
 import MySpace from "./pages/MySpacePage";
+import NewStory from "./pages/NewStoryForm";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 
@@ -43,6 +44,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/space/me" component={MySpace} />
+        <Route exact path="/space/me/newStory" component={NewStory} />
         <Route path="/space/:id" component={Space} />
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />

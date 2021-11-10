@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-
+import { getUserWithStoredToken } from "../../store/user/actions";
 
   export function fetchAllSpaces() {
     return async function thunk(dispatch, getState) {
@@ -46,8 +46,6 @@ import { apiUrl } from "../../config/constants";
     }
   }
 
-  
-
   export const newSpace = (title, userId) => {
     return async (dispatch, getState) => {
       try {
@@ -64,9 +62,34 @@ import { apiUrl } from "../../config/constants";
 
         } else {
           console.log(error.message);
-
         }
-
       }
     };
   };
+
+  export function deleteStory(storyId) {
+    // console.log("Delete this story",storyId)
+    return async function thunk(dispatch, getState) {
+      const response = await axios.delete(`${apiUrl}/stories/${storyId}`)
+  
+      dispatch(
+        getUserWithStoredToken()
+      );
+    };
+  }
+
+  export function createStory( name, content, imageUrl, spaceId ) {
+    // console.log("Delete this story",storyId)
+    return async function thunk(dispatch, getState) {
+      const newStory = await axios.delete(`${apiUrl}/stories/`, {
+        name: name,
+        content: content,
+        imageUrl: imageUrl,
+        spaceId: spaceId
+      })
+  
+      dispatch(
+        getUserWithStoredToken()
+      );
+    };
+  }
