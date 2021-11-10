@@ -11,7 +11,6 @@ import Loading from "../../components/Loading";
 
 export default function MySpace() {
     const dispatch = useDispatch();
-    // const { id } = useParams()
 
     useEffect(() => {
         dispatch(getUserWithStoredToken());
@@ -44,7 +43,7 @@ export default function MySpace() {
                     <h4>{story.name}</h4>
                     <p></p>
                     <p>{story.content}</p>
-                    <button onClick={() => dispatch(deleteStory(story.id))}>Delete '{story.name}'</button>
+                    <Button variant="primary" onClick={() => dispatch(deleteStory(story.id))}>Delete '{story.name}'</Button>
                     </div>
                 )
             }) }

@@ -81,7 +81,7 @@ import { getUserWithStoredToken } from "../../store/user/actions";
   export function createStory( name, content, imageUrl, spaceId ) {
     // console.log("Delete this story",storyId)
     return async function thunk(dispatch, getState) {
-      const newStory = await axios.delete(`${apiUrl}/stories/`, {
+      const newStory = await axios.post(`${apiUrl}/stories/`, {
         name: name,
         content: content,
         imageUrl: imageUrl,
