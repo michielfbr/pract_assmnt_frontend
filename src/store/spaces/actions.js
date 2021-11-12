@@ -1,6 +1,7 @@
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
 import { getUserWithStoredToken } from "../../store/user/actions";
+import { showMessageWithTimeout } from "../appState/actions";
 
   export function fetchAllSpaces() {
     return async function thunk(dispatch, getState) {
@@ -29,7 +30,7 @@ import { getUserWithStoredToken } from "../../store/user/actions";
       const response = await axios.get(`${apiUrl}/spaces/${id}`)
 
       const spaces = response.data
-      // console.log("Space fetched", spaces)
+      console.log("Space fetched", spaces)
   
       dispatch(
         spaceFullyFetched({
@@ -75,10 +76,15 @@ import { getUserWithStoredToken } from "../../store/user/actions";
       dispatch(
         getUserWithStoredToken()
       );
+
+      dispatch(
+      showMessageWithTimeout("success", false, "Story deleted")
+      )
+
     };
   }
 
-  export function createStory( name, content, imageUrl, spaceId ) {
+  export function createStory( name, content, imageUrl, spaceId, token ) {
     // console.log("Delete this story",storyId)
     return async function thunk(dispatch, getState) {
       const newStory = await axios.post(`${apiUrl}/stories/`, {
@@ -86,10 +92,30 @@ import { getUserWithStoredToken } from "../../store/user/actions";
         content: content,
         imageUrl: imageUrl,
         spaceId: spaceId
+      },{
+        headers: { Authorization: `Bearer ${token}` }
       })
   
       dispatch(
-        getUserWithStoredToken()
+        showMessageWithTimeout("success", false, "Story posted on your space!")
+      );
+    };
+  }
+
+  export function updateSpace( spaceId, title, description, backgroundColor, color, token ) {
+    // console.log("Delete this story",storyId)
+    return async function thunk(dispatch, getState) {
+      const newStory = await axios.put(`${apiUrl}/spaces/${spaceId}`, {
+        title: title,
+        description: description,
+        backgroundColor: backgroundColor,
+        color: color
+      },{
+        headers: { Authorization: `Bearer ${token}` }
+      })
+  
+      dispatch(
+        showMessageWithTimeout("success", false, "Space updated!")
       );
     };
   }

@@ -19,8 +19,7 @@ export default function Navigation() {
         <img 
         src="https://lezebre.lu/images/detailed/24/65051-sticker-cool-story-bro.png" 
         alt="Cool Story Bro!"
-        width="10%"
-        height="10%"
+        width="80px"
       />
       {/* Cool Story Bro! */}
       </Navbar.Brand>
@@ -28,7 +27,7 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Home" />
-          <NavbarItem path="/other" linkText="Other" />
+          {/* <NavbarItem path="/other" linkText="Other" /> */}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

@@ -1,5 +1,6 @@
 const initialState = {
     spaces:[],
+    space:[]
   };
   
   export default function spaces(state = initialState, action) {

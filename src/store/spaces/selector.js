@@ -18,7 +18,7 @@ export const selectSpaceStories = reduxState => {
   } else {
     const stories = reduxState.spaces.space.stories
     return stories.sort((a, b) => {
-      return a.createdAt < b.createdAt ? 1 : -1
+      return a.createdAt > b.createdAt ? 1 : -1
     });
   }
   };

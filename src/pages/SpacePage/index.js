@@ -22,7 +22,7 @@ export default function Space() {
            {/* <h1>SpacePage</h1> */}
 
            <div>{!space || !stories ? (<Loading />) : (
-               <div>
+               <div style={{backgroundColor: space.backgroundColor, color: space.color}}>
                <h1>{space.title}</h1>
                <h4>{space.description}</h4><br/>
                    

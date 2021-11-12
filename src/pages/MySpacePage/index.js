@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import { getUserWithStoredToken } from "../../store/user/actions";
 import { selectUser } from "../../store/user/selectors";
 import { deleteStory } from "../../store/spaces/actions";
-import { selectMySpace, selectSpaceStories } from "../../store/spaces/selector";
+import { selectSpace, selectMySpace, selectSpaceStories } from "../../store/spaces/selector";
 import Loading from "../../components/Loading";
 
 export default function MySpace() {
@@ -24,13 +24,17 @@ export default function MySpace() {
            {/* <h1>My Space</h1> */}
 
            <div>{!spaceNstories ? (<Loading />) : (
-               <div>
+               <div style={{backgroundColor: spaceNstories.userSpace.backgroundColor, color: spaceNstories.userSpace.color}}>
                <h1>Welcome to your space {user.name}!</h1>
                <h4>{spaceNstories.userSpace.description}</h4><br/>
 
                    <Link to="/space/me/newStory" style={{ textAlign: "center" }}>
                    <Button variant="primary">Post a cool story bro</Button>
-                   </Link><br/><br/>
+                   </Link>
+                   <Link to="/space/me/edit" style={{ textAlign: "center", margin: 10 }}>
+                   <Button variant="primary">Edit my space</Button>
+                   </Link>
+                   <br/><br/>
                    <h4>Your stories:</h4>
                    {spaceNstories.userStories.map(story =>{
                 return(

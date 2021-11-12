@@ -9,8 +9,11 @@ import Loading from "../../components/Loading";
 export default function Home() {
     
     const dispatch = useDispatch();
-
     const spaces = useSelector(selectAllSpaces)
+    const divStyle = {
+        backgroundColor: 'black',
+        color: 'white'
+    }
 
     useEffect(() => {
         dispatch(fetchAllSpaces());
@@ -18,12 +21,12 @@ export default function Home() {
   
     return (
         <Jumbotron>
-           <h1>Home</h1>
+           <h1>Check out these awesome spaces</h1>
 
            <div>{!spaces ? (<Loading />) : (
     <div>{spaces.map(space =>{
         return(
-            <div key={space.id}>
+            <div style={{backgroundColor: space.backgroundColor, color: space.color}} key={space.id}>
             <h4>{space.title}</h4>
             <p>{space.description}</p>
             <p><Link to={`/space/${space.id}`}>
